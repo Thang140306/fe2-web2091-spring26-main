@@ -31,7 +31,7 @@ const LoginForm = () => {
 
 
             <br /><br />
-            bai2
+            bai2+3
             <Form.Item label="Email" name="email"
                 rules={[
                     { required: true, message: "vui long nhap email" },
@@ -41,6 +41,26 @@ const LoginForm = () => {
             </Form.Item>
 
             <Form.Item label="Phone" name="phone">
+                <Input />
+            </Form.Item>
+
+            <Form.Item
+                label="Price"
+                name="price"
+            >
+                <Input type="number" />
+            </Form.Item>
+            <Form.Item
+                label="Quantity"
+                name="quantity"
+            >
+                <Input type="number" />
+            </Form.Item>
+            <Form.Item
+                label="Descriptio"
+                name="descriptio"
+
+            >
                 <Input />
             </Form.Item>
 
