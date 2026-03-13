@@ -32,7 +32,6 @@ const data = [
 ];
 
 
-// ===== BÀI 3 =====
 
 const columnsUser = [
     { title: "ID", dataIndex: "id" },
