@@ -97,7 +97,7 @@ const LoginForm = () => {
 
             <Form.Item>
                 <Button type="primary" htmlType="submit">
-                    dang nhap
+                    submit
                 </Button>
             </Form.Item>
         </Form>
