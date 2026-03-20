@@ -1,4 +1,13 @@
 {
-  "products": [],
+  "stories": [
+    {
+      "title": "hsh",
+      "author": "ss",
+      "image": "fc",
+      "description": "eee",
+      "id": 1
+    }
+  ],
+  "categories": [],
   "users": []
 }

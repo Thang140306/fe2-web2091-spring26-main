@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { Layout } from "antd";
+import StoryForm from "./pages/lab4";
 
 const { Header, Content, Footer } = Layout;
 
@@ -45,6 +46,7 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>Content</Content>
+          <StoryForm />
           <Footer>Footer</Footer>
         </Layout>
       </div>
