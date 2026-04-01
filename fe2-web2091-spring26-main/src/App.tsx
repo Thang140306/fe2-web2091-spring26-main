@@ -1,152 +1,79 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Route, Routes } from "react-router-dom";
-import { Form, Input, Button, Table, InputNumber, Select } from "antd";
-import { Layout } from "antd";
-import { Image } from "antd";
-import { EditStory } from "./pages/lab6";
+import { Layout, ConfigProvider, Button, theme } from "antd";
+import { useContext } from "react";
+
+import Lab1 from "./pages/lab1";
+import Lab2 from "./pages/lab2";
+import Lab3 from "./pages/lab3";
 import StoryForm from "./pages/lab4";
 import StoryList from "./pages/lab5";
+import { EditStory } from "./pages/lab6";
+import Navbar from "./components/Header";
+
+import { ThemeContext } from "./context/ThemeContext";
+
 const { Header, Content, Footer } = Layout;
 
 function App() {
-  const onFinish = (values: any) => {
-    console.log(values);
-  };
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext) return null;
 
-  const columns = [
-    { title: "Họ tên", dataIndex: "name" },
-    { title: "Tuổi", dataIndex: "age" },
-    { title: "Môn học", dataIndex: "subject" },
-    {
-      title: "Avatart",
-      dataIndex: "avatar",
-      render: (avatar: string) => <Image width={50} src={avatar} />,
-    },
-  ];
-
-  const data = [
-    {
-      key: 1,
-      name: "John",
-      age: 25,
-      subject: "FE2",
-      avatar: "https://i.pravatar.cc/150?img=1",
-    },
-    {
-      key: 2,
-      name: "Anna",
-      age: 30,
-      subject: "FE1",
-      avatar: "https://i.pravatar.cc/150?img=2",
-    },
-  ];
+  const { themeConfig } = themeContext;
+  const { token } = theme.useToken();
 
   return (
-    <>
-      <nav className="bg-blue-600 text-white shadow">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="#" className="text-xl font-semibold">
-            <strong>WEB2091 App</strong>
-          </Link>
+    <ConfigProvider theme={themeConfig}>
+      <div
+        style={{
+          background: token.colorBgBase,
+          minHeight: "100vh",
+        }}
+      >
+        <Navbar />
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="#" className="hover:text-gray-200">
-              Trang chủ
-            </Link>
-            <Link to="/list" className="hover:text-gray-200">
-              Danh sách
-            </Link>
-            <Link to="/add" className="hover:text-gray-200">
-              Thêm mới
-            </Link>
+        <div className="max-w-6xl mx-auto mt-10 px-4">
+          <h1 className="text-4xl font-bold mb-6 text-center">
+            Chào mừng đến với WEB2091
+          </h1>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <Link to="/lab1"><Button type="primary">Lab 1</Button></Link>
+            <Link to="/lab2"><Button type="primary">Lab 2</Button></Link>
+            <Link to="/lab3"><Button type="primary">Lab 3</Button></Link>
+            <Link to="/lab4"><Button type="primary">Lab 4</Button></Link>
+            <Link to="/lab5"><Button type="primary">Lab 5</Button></Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="#" className="hover:text-gray-200">
-              Đăng nhập
-            </Link>
-            <Link to="#" className="hover:text-gray-200">
-              Đăng ký
-            </Link>
-          </div>
+          <Layout
+            style={{ background: token.colorBgContainer }}
+            className="shadow rounded-lg overflow-hidden"
+          >
+            <Header style={{ color: token.colorTextBase }}>
+              Header
+            </Header>
+
+            <Content style={{ padding: 20 }}>
+              <Routes>
+                <Route path="/" element={<Lab1 />} />
+                <Route path="/lab1" element={<Lab1 />} />
+                <Route path="/lab2" element={<Lab2 />} />
+                <Route path="/lab3" element={<Lab3 />} />
+                <Route path="/lab4" element={<StoryForm />} />
+                <Route path="/lab5" element={<StoryList />} />
+                <Route path="/edit/:id" element={<EditStory />} />
+              </Routes>
+            </Content>
+
+            <Footer className="text-center">
+              Footer
+            </Footer>
+          </Layout>
         </div>
-      </nav>
 
-      {/* MAIN CONTENT */}
-      <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
-
-        <Routes>
-          <Route path="/edit/:id" element={<EditStory />}></Route>
-          <Route path="/list " element={<StoryList />}></Route>
-        </Routes>
-        <Layout>
-          {/* <Header style={{ color: "white" }}>Header</Header> */}
-          <Content style={{ padding: 20 }}>
-            <StoryList />
-
-            <StoryForm />
-            {/* <Form
-              layout="vertical"
-              onFinish={onFinish}
-              style={{ maxWidth: 400 }}
-            >
-              <Form.Item
-                label="Price"
-                name="price"
-                rules={[
-                  { min: 0, type: "number", message: "Gia phai lon hon khong" },
-                ]}
-              >
-                <InputNumber />
-              </Form.Item>
-
-              <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                  { required: true, message: "Please input your password!" },
-                  {
-                    min: 6,
-                    message: "Password must be at least 6 characters!",
-                  },
-                ]}
-              >
-                <Input.Password />
-              </Form.Item>
-              <Form.Item>
-                <Select
-                  options={[
-                    {
-                      value: "FE1",
-                      label: "FE1",
-                    },
-                    {
-                      value: "FE2",
-                      label: "FE2",
-                    },
-                  ]}
-                  placeholder="Chọn môn học"
-                />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" htmlType="submit">
-                  Đăng nhập
-                </Button>
-              </Form.Item>
-            </Form> */}
-            {/* <Table
-              columns={columns}
-              dataSource={data}
-              pagination={{ pageSize: 1 }}
-            /> */}
-          </Content>
-          {/* <Footer>Footer</Footer> */}
-        </Layout>
+        <Toaster />
       </div>
-
-      <Toaster />
-    </>
+    </ConfigProvider>
   );
 }
 
