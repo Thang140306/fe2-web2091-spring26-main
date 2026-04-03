@@ -1,7 +1,8 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Route, Routes } from "react-router-dom";
-import { Layout, ConfigProvider, Button, theme } from "antd";
+import { Layout, ConfigProvider, Button } from "antd";
 import { useContext } from "react";
+import { theme } from "antd";
 
 import Lab1 from "./pages/lab1";
 import Lab2 from "./pages/lab2";
@@ -12,6 +13,7 @@ import { EditStory } from "./pages/lab6";
 import Navbar from "./components/Header";
 
 import { ThemeContext } from "./context/ThemeContext";
+import Register from "./pages/register";
 
 const { Header, Content, Footer } = Layout;
 
@@ -43,6 +45,7 @@ function App() {
             <Link to="/lab3"><Button type="primary">Lab 3</Button></Link>
             <Link to="/lab4"><Button type="primary">Lab 4</Button></Link>
             <Link to="/lab5"><Button type="primary">Lab 5</Button></Link>
+            <Link to="/lab8"><Button type="primary">Lab 8</Button></Link>
           </div>
 
           <Layout
@@ -53,22 +56,22 @@ function App() {
               Header
             </Header>
 
-            <Content style={{ padding: 20 }}>
-              <Routes>
-                <Route path="/" element={<Lab1 />} />
-                <Route path="/lab1" element={<Lab1 />} />
-                <Route path="/lab2" element={<Lab2 />} />
-                <Route path="/lab3" element={<Lab3 />} />
-                <Route path="/lab4" element={<StoryForm />} />
-                <Route path="/lab5" element={<StoryList />} />
-                <Route path="/edit/:id" element={<EditStory />} />
-              </Routes>
-            </Content>
+            <Content style={{ padding: 20 }} />
 
             <Footer className="text-center">
               Footer
             </Footer>
           </Layout>
+
+          <Routes>
+            <Route path="/lab1" element={<Lab1 />} />
+            <Route path="/lab2" element={<Lab2 />} />
+            <Route path="/lab3" element={<Lab3 />} />
+            <Route path="/lab4" element={<StoryForm />} />
+            <Route path="/lab5" element={<StoryList />} />
+            <Route path="/edit/:id" element={<EditStory />} />
+            <Route path="/lab8" element={<Register />} />
+          </Routes>
         </div>
 
         <Toaster />
