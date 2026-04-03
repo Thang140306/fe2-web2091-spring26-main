@@ -4,7 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
 export default function StoryList() {
-    const { data, isLoading, isError } = useQuery({
+    const { data, isError } = useQuery({
         queryKey: ["stories"],
         queryFn: async () => {
             const res = await axios.get("http://localhost:3000/stories");
@@ -62,5 +62,5 @@ export default function StoryList() {
     if (isError) {
         return <div>Co loi xay ra</div>;
     }
-    return <Table rowKey="id" columns={columns} dataSource={data} loading={isLoading} />;
+    return <Table rowKey="id" columns={columns} dataSource={data} />;
 }

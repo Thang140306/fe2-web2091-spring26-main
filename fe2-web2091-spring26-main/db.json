@@ -28,5 +28,12 @@
       "id": 1
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$TJF3.zvZ3x2z8xh0nBOXO.N9k6JvKH0pgg4PljEQ7fhCrYoDq6lCS",
+      "username": "user1",
+      "id": 1
+    }
+  ]
 }
