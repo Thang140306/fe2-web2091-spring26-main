@@ -1,16 +1,16 @@
 {
   "stories": [
     {
-      "title": "bacahhahah",
-      "author": "baca",
-      "image": "https://picsum.photos/400/300?random=2",
-      "id": 2
+      "id": 2,
+      "title": "bacahhahah345577",
+      "author": "baca88878",
+      "image": "https://picsum.photos/400/300?random=2"
     },
     {
+      "id": 3,
       "title": "tiên nghịch ",
-      "author": "nhi can ",
-      "image": "https://picsum.photos/400/300?random=2",
-      "id": 3
+      "author": "nhi can 123",
+      "image": "https://picsum.photos/400/300?random=2"
     },
     {
       "title": "son gu cu",
@@ -34,6 +34,24 @@
       "password": "$2a$10$TJF3.zvZ3x2z8xh0nBOXO.N9k6JvKH0pgg4PljEQ7fhCrYoDq6lCS",
       "username": "user1",
       "id": 1
+    },
+    {
+      "email": "qthangdz@gmail.com",
+      "password": "$2a$10$.F21PuTxpXqPBSx7BzfIUOxdVjgK5vfiyMPF9igFnnPkytbkYvrjO",
+      "username": "user1",
+      "id": 2
+    },
+    {
+      "email": "quangthangbv2006@gmail.com",
+      "password": "$2a$10$iomNlGx9kQiA0DnEOlEzDeUt9JpfPHdc0JsA.r4UGlOC8n9rf0ogu",
+      "username": "user1",
+      "id": 3
+    },
+    {
+      "email": "tp365486@gmail.com",
+      "password": "$2a$10$vyTHXpf7G6huzFCQ4QGUmObIZlUfRfDmI1jspqls8UDauwBg7r5sq",
+      "username": "user1",
+      "id": 4
     }
   ]
 }
